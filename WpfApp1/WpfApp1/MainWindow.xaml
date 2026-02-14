@@ -49,42 +49,132 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Left panel (folder) -->
-            <Border BorderBrush="Black" BorderThickness="2" Padding="5">
-                <StackPanel x:Name="grdFolders">
-                    <Button x:Name="btnFolder1" Content="folder 1" Margin="0,5"/>
-                    <Button x:Name="btnFolder2" Content="folder 2" Margin="0,5"/>
-                    <Button x:Name="btnFolder3" Content="folder 3" Margin="0,5"/>
-                </StackPanel>
-            </Border>
+            <!-- Left panel (folder)
+                 <Border BorderBrush="Black" BorderThickness="2" Padding="5">
+                 <StackPanel x:Name="grdFolders">
+             <Button x:Name="btnFolder1" Content="folder 1" Margin="0,5"/>
+             <Button x:Name="btnFolder2" Content="folder 2" Margin="0,5"/>
+             <Button x:Name="btnFolder3" Content="folder 3" Margin="0,5"/>
+               </StackPanel>
+                </Border>
+            
+            -->
 
-            <!-- right panel (sound) -->
-            <Border Grid.Column="1"
+            <!-- MAIN CONTENT -->
+            <Grid Grid.Row="1" Margin="0,10,0,0">
+
+                <Grid.ColumnDefinitions>
+
+                    <!-- LEFT SIDE -->
+                    <ColumnDefinition Width="200"/>
+
+                    <!-- RIGHT SIDE -->
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+
+                <!-- LEFT PANEL (FOLDERS BUTTONS) -->
+                <Border Grid.Column="0"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Padding="5">
+
+                    <StackPanel>
+
+                        <Button Content="Folder 1"
+                            Height="40"
+                            Margin="5"
+                            Click="BtnFolder1_Click"/>
+
+                        <Button Content="Folder 2"
+                            Height="40"
+                            Margin="5"
+                            Click="BtnFolder2_Click"/>
+
+                        <Button Content="Folder 3"
+                            Height="40"
+                            Margin="5"
+                            Click="BtnFolder3_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+
+
+                <!-- RIGHT PANEL (SOUNDS) -->
+                <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
                     Padding="5"
-                    Margin="10,0,0,0">
+                    Margin="10,0,-680,0">
 
-                <ListBox x:Name="lbxSounds">
-                    <ListBoxItem Content="Sound 1" Height="40"/>
-                    <ListBoxItem Content="Sound 2" Height="40"/>
-                    <ListBoxItem Content="Sound 3" Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                    <ListBoxItem Height="40"/>
-                </ListBox>
+                    
+                    
+                    
+                    <!-- TABCONTROL (HIDDEN HEADERS) -->
+                    <TabControl x:Name="tabSounds"
+                            BorderThickness="0">
 
-            </Border>
+                        <TabControl.Resources>
+
+                            <!-- hide tab headers -->
+                            <Style TargetType="TabItem">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Style>
+
+                        </TabControl.Resources>
+
+
+                        <!-- FOLDER 1 -->
+                        <TabItem>
+
+                            <ListBox x:Name="lbxFolder1">
+
+                                <ListBoxItem Content="Sound 1"/>
+                                <ListBoxItem Content="Sound 2"/>
+                                <ListBoxItem Content="Sound 3"/>
+
+                            </ListBox>
+
+                        </TabItem>
+
+
+                        <!-- FOLDER 2 -->
+                        <TabItem>
+
+                            <ListBox x:Name="lbxFolder2">
+
+                                <ListBoxItem Content="Sound A"/>
+                                <ListBoxItem Content="Sound B"/>
+
+                            </ListBox>
+
+                        </TabItem>
+
+
+                        <!-- FOLDER 3 -->
+                        <TabItem>
+
+                            <ListBox x:Name="lbxFolder3">
+
+                                <ListBoxItem Content="Sound X"/>
+                                <ListBoxItem Content="Sound Y"/>
+
+                            </ListBox>
+
+                        </TabItem>
+
+
+                    </TabControl>
+
+                </Border>
+            </Grid>
+
+
         </Grid>
-    </Grid>
+
+        </Grid>
 </Window>
 
